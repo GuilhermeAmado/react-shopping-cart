@@ -13,6 +13,8 @@ const GlobalStyle = createGlobalStyle`
 
   html {
       font-family: Inter, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+      --english-green-color: #1B4D3E;
   }
 
   body {
