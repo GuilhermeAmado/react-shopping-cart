@@ -4,10 +4,11 @@ import Header from './components/Header';
 import CategoriesSelect from './components/CategoriesSelect';
 import ProductsList from './components/ProductsList';
 import Product from './components/Product';
+import { CartContextProvider } from './CartContext';
 
 function App() {
   return (
-    <>
+    <CartContextProvider>
       <GlobalStyle />
       <Header />
       <CategoriesSelect />
@@ -29,7 +30,7 @@ function App() {
           image={'/images/boloovomaltine.jpg'}
         />
       </ProductsList>
-    </>
+    </CartContextProvider>
   );
 }
 

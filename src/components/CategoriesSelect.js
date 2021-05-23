@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import Select from 'react-select';
+import { CartContext } from '../CartContext';
 
 const options = [
   { value: 'salgados', label: 'Salgados' },
@@ -14,10 +15,13 @@ const SelectContainer = styled.div`
 `;
 
 const CategoriesSelect = () => {
+  const { selectedCategory, setSelectedCategory } = useContext(CartContext);
   return (
     <SelectContainer>
       <Select
         options={options}
+        value={selectedCategory}
+        onChange={setSelectedCategory}
         placeholder="Selecione a categoria"
         theme={(theme) => ({
           ...theme,
