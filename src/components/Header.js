@@ -30,7 +30,7 @@ const Header = () => {
             <FiArrowLeft size="2rem" />
           </li>
           <li>
-            <h1>logo</h1>
+            <h1>React Cart</h1>
           </li>
           <li>
             <ShoppingCartIcon />
