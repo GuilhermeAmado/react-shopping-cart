@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import { FiArrowLeft, FiShoppingCart } from 'react-icons/fi';
 
 const StyledHeader = styled.header`
+  background-color: #f7f7f7;
+  box-shadow: var(--primary-shadow);
   ul {
     list-style: none;
-    background-color: azure;
     padding: 1rem 2rem;
 
     display: flex;
@@ -27,7 +28,9 @@ const StyledHeader = styled.header`
 const ItemsCounter = styled.div`
   width: 1.5rem;
   height: 1.5rem;
-  background-color: antiquewhite;
+  line-height: 1;
+  color: var(--text-light);
+  background-color: var(--accent-color);
   border-radius: 50%;
 
   display: flex;
