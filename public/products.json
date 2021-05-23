@@ -5,7 +5,7 @@
     "name": "Coxinha de frango",
     "description": "Coxinha feita com massa de mandioca e recheio de frango",
     "price": 6.0,
-    "image": null
+    "image": "/images/coxinhafrango.jpg"
   },
   {
     "id": 1,
@@ -13,7 +13,7 @@
     "name": "Coxinha de carne",
     "description": "Coxinha feita com massa de mandioca e recheio de carne",
     "price": 6.0,
-    "image": null
+    "image": "/images/coxinhacarne.jpg"
   },
   {
     "id": 2,
@@ -21,7 +21,7 @@
     "name": "Pão de queijo",
     "description": "Pão de queijo",
     "price": 2.5,
-    "image": null
+    "image": "/images/paodequeijo.jpg"
   },
   {
     "id": 3,
@@ -29,7 +29,7 @@
     "name": "Esfirra de frango",
     "description": "Esfirra assada com recheio de frango",
     "price": 6.5,
-    "image": null
+    "image": "/images/esfirrafrango.jpg"
   },
   {
     "id": 4,
@@ -37,7 +37,7 @@
     "name": "Esfirra de carne",
     "description": "Esfirra assada com recheio de carne",
     "price": 6.5,
-    "image": null
+    "image": "/images/esfirracarne.jpg"
   },
   {
     "id": 5,
@@ -45,7 +45,7 @@
     "name": "Brigadeirão de chocolate",
     "description": "Brigadeirão de 130g de chocolate, empanado em um delicioso granulado de chocolate",
     "price": 4.7,
-    "image": null
+    "image": "/images/brigadeiraochocolate.jpg"
   },
   {
     "id": 6,
@@ -53,7 +53,7 @@
     "name": "Bolo gelado Ovomaltine",
     "description": "Massa de chocolate, brigadeiro de Ovomaltine, mousse de Ovomaltine",
     "price": 9.9,
-    "image": null
+    "image": "/images/boloovomaltine.jpg"
   },
   {
     "id": 7,
@@ -61,30 +61,30 @@
     "name": "Bolo gelado de cenoura",
     "description": "Deliciosa massa de bolo de cenoura fofinha com recheios de mousse de chocolate e brigadeiro de chocolate, empanadas na bolacha de chocolate",
     "price": 9.0,
-    "image": null
+    "image": "/images/bolocenoura.jpg"
   },
   {
     "id": 8,
-    "idCategory": 1,
+    "idCategory": 2,
     "name": "Coca cola lata 350ml",
     "description": "Coca cola lata 350ml",
     "price": 5.0,
-    "image": null
+    "image": "/images/cocacola.jpg"
   },
   {
     "id": 9,
-    "idCategory": 1,
-    "name": "Fanta lata 350ml",
-    "description": "Fanta lata 350ml",
+    "idCategory": 2,
+    "name": "Sprite 350ml",
+    "description": "Sprite 350ml",
     "price": 5.0,
-    "image": null
+    "image": "/images/sprite.jpg"
   },
   {
     "id": 10,
-    "idCategory": 1,
+    "idCategory": 2,
     "name": "Guaraná lata 350ml",
     "description": "Guaraná lata 350ml",
     "price": 5.0,
-    "image": null
+    "image": "/images/guarana.jpg"
   }
 ]
