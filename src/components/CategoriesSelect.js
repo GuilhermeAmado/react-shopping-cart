@@ -19,8 +19,6 @@ const CategoriesSelect = () => {
       <Select
         options={options}
         placeholder="Selecione a categoria"
-        // className="react-select-main"
-        // classNamePrefix="react-select"
         theme={(theme) => ({
           ...theme,
           colors: {
@@ -28,6 +26,7 @@ const CategoriesSelect = () => {
             primary: 'var(--accent-color)',
             primary25: 'var(--accent-color25)',
             primary50: 'var(--accent-color50)',
+            primary75: 'var(--accent-color75)',
           },
         })}
       />
