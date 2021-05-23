@@ -1,0 +1,90 @@
+[
+  {
+    "id": 0,
+    "idCategory": 0,
+    "name": "Coxinha de frango",
+    "description": "Coxinha feita com massa de mandioca e recheio de frango",
+    "price": 6.0,
+    "image": null
+  },
+  {
+    "id": 1,
+    "idCategory": 0,
+    "name": "Coxinha de carne",
+    "description": "Coxinha feita com massa de mandioca e recheio de carne",
+    "price": 6.0,
+    "image": null
+  },
+  {
+    "id": 2,
+    "idCategory": 0,
+    "name": "Pão de queijo",
+    "description": "Pão de queijo",
+    "price": 2.5,
+    "image": null
+  },
+  {
+    "id": 3,
+    "idCategory": 0,
+    "name": "Esfirra de frango",
+    "description": "Esfirra assada com recheio de frango",
+    "price": 6.5,
+    "image": null
+  },
+  {
+    "id": 4,
+    "idCategory": 0,
+    "name": "Esfirra de carne",
+    "description": "Esfirra assada com recheio de carne",
+    "price": 6.5,
+    "image": null
+  },
+  {
+    "id": 5,
+    "idCategory": 1,
+    "name": "Brigadeirão de chocolate",
+    "description": "Brigadeirão de 130g de chocolate, empanado em um delicioso granulado de chocolate",
+    "price": 4.7,
+    "image": null
+  },
+  {
+    "id": 6,
+    "idCategory": 1,
+    "name": "Bolo gelado Ovomaltine",
+    "description": "Massa de chocolate, brigadeiro de Ovomaltine, mousse de Ovomaltine",
+    "price": 9.9,
+    "image": null
+  },
+  {
+    "id": 7,
+    "idCategory": 1,
+    "name": "Bolo gelado de cenoura",
+    "description": "Deliciosa massa de bolo de cenoura fofinha com recheios de mousse de chocolate e brigadeiro de chocolate, empanadas na bolacha de chocolate",
+    "price": 9.0,
+    "image": null
+  },
+  {
+    "id": 8,
+    "idCategory": 1,
+    "name": "Coca cola lata 350ml",
+    "description": "Coca cola lata 350ml",
+    "price": 5.0,
+    "image": null
+  },
+  {
+    "id": 9,
+    "idCategory": 1,
+    "name": "Fanta lata 350ml",
+    "description": "Fanta lata 350ml",
+    "price": 5.0,
+    "image": null
+  },
+  {
+    "id": 10,
+    "idCategory": 1,
+    "name": "Guaraná lata 350ml",
+    "description": "Guaraná lata 350ml",
+    "price": 5.0,
+    "image": null
+  }
+]
