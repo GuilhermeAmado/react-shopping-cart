@@ -18,9 +18,7 @@ function App() {
             'Deliciosa massa de bolo de cenoura fofinha com recheios de mousse de chocolate e brigadeiro de chocolate, empanadas na bolacha de chocolate'
           }
           price={'R$ 9,00'}
-          image={
-            'https://static.wixstatic.com/media/0082f3_8bb322cf93764356895281a43a926c5e~mv2.jpg'
-          }
+          image={'/images/bolocenoura.jpg'}
         />
         <Product
           name={'Bolo gelado Ovomaltine'}
@@ -28,9 +26,7 @@ function App() {
             'Massa de chocolate, brigadeiro de Ovomaltine, mousse de Ovomaltine'
           }
           price={'R$ 9,90'}
-          image={
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwXEubek4HwbX28RDlImCAOho4uAOMuKG3ZEV66-o0_IwGA6-5w1tD3ji9M65sXKTCmiU&usqp=CAU'
-          }
+          image={'/images/boloovomaltine.jpg'}
         />
       </ProductsList>
     </>
