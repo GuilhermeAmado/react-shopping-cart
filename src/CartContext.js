@@ -7,6 +7,7 @@ export const CartContextProvider = (props) => {
   const [categories, setCategories] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [products, setProducts] = useState(null);
+  const [productsToDisplay, setProductsToDisplay] = useState(null);
   const [cartItems, setCartItems] = useState(null);
 
   async function getCategories() {
@@ -29,6 +30,7 @@ export const CartContextProvider = (props) => {
     });
     const data = await response.json();
     setProducts(data);
+    setProductsToDisplay(data);
   }
 
   useEffect(() => {
@@ -45,6 +47,8 @@ export const CartContextProvider = (props) => {
         setSelectedCategory,
         products,
         setProducts,
+        productsToDisplay,
+        setProductsToDisplay,
         cartItems,
         setCartItems,
       }}

@@ -3,20 +3,24 @@ import styled from 'styled-components';
 
 const ProductCard = styled.li`
   width: 100%;
-  min-height: 175px;
+  /* min-height: 175px; */
+  /* min-height: 180px; */
   padding: 15px;
   border: var(--primary-border);
   border-radius: 4px;
 
   display: flex;
+  justify-content: space-between;
   gap: 15px;
 `;
 
 const ProductInfo = styled.div`
-  max-width: 350px;
+  /* max-width: 350px; */
+  width: 70%;
   line-height: 1.5;
 
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: space-between;
   .product-name {
@@ -38,7 +42,8 @@ const ProductInfo = styled.div`
 `;
 
 const ProductImage = styled.div`
-  max-width: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 4px;
   img {
     border-radius: 4px;
@@ -65,20 +70,20 @@ const AddToCartButton = styled.button`
   }
 `;
 
-const Product = ({ name, description, price, image }) => {
+const Product = ({ product }) => {
   return (
     <ProductCard>
       <ProductInfo>
-        <h4 className="product-name">{name}</h4>
-        <p className="product-description">{description}</p>
+        <h4 className="product-name">{product.name}</h4>
+        <p className="product-description">{product.description}</p>
         <div className="product-price">
-          <p>{price}</p>
+          <p>{product.price}</p>
           <AddToCartButton>Adicionar ao carrinho</AddToCartButton>
         </div>
       </ProductInfo>
 
       <ProductImage>
-        <img src={image} alt={name} />
+        <img src={product.image} alt={product.name} />
       </ProductImage>
     </ProductCard>
   );

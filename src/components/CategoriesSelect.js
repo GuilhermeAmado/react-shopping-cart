@@ -1,13 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import Select from 'react-select';
 import { CartContext } from '../CartContext';
-
-const options = [
-  { value: 'salgados', label: 'Salgados' },
-  { value: 'doces', label: 'Doces' },
-  { value: 'bebidas', label: 'Bebidas' },
-];
 
 const SelectContainer = styled.div`
   max-width: 600px;
@@ -15,13 +9,36 @@ const SelectContainer = styled.div`
 `;
 
 const CategoriesSelect = () => {
-  const { selectedCategory, setSelectedCategory } = useContext(CartContext);
+  const {
+    categories,
+    products,
+    setProductsToDisplay,
+    selectedCategory,
+    setSelectedCategory,
+  } = useContext(CartContext);
+
+  function handleCategoryChange(category) {
+    setSelectedCategory(category);
+  }
+
+  useEffect(() => {
+    if (selectedCategory) {
+      const filteredProducts = products.filter(
+        ({ idCategory }) => idCategory === selectedCategory.id
+      );
+      setProductsToDisplay(filteredProducts);
+    }
+  }, [products, selectedCategory, setProductsToDisplay]);
+
+  if (!products) return null;
   return (
     <SelectContainer>
       <Select
-        options={options}
+        options={categories}
+        getOptionLabel={(option) => option.name}
+        getOptionValue={(option) => option}
         value={selectedCategory}
-        onChange={setSelectedCategory}
+        onChange={(category) => handleCategoryChange(category)}
         placeholder="Selecione a categoria"
         theme={(theme) => ({
           ...theme,
