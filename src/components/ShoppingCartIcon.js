@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FiShoppingCart } from 'react-icons/fi';
+import { CartContext } from '../CartContext';
 
 const CartIconContainer = styled.div`
   position: relative;
@@ -26,11 +27,24 @@ const ItemsCounter = styled.div`
 `;
 
 const ShoppingCartIcon = () => {
+  const { cartItems } = useContext(CartContext);
+  const [itemCount, setItemCount] = useState(0);
+
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      const numberOfItems = cartItems.reduce((accumulator, item) => {
+        return accumulator + item.quantity;
+      }, 0);
+
+      setItemCount(numberOfItems);
+    }
+  }, [cartItems]);
+
   return (
     <CartIconContainer>
       <FiShoppingCart size="2rem" className="back-icon" />
       <ItemsCounter className="counter">
-        <strong>5</strong>
+        <strong>{itemCount}</strong>
       </ItemsCounter>
     </CartIconContainer>
   );

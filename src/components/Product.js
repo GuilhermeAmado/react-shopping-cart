@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { CartContext } from '../CartContext';
 
 const ProductCard = styled.li`
   width: 100%;
@@ -71,6 +72,25 @@ const AddToCartButton = styled.button`
 `;
 
 const Product = ({ product }) => {
+  const { cartItems, setCartItems } = useContext(CartContext);
+
+  function handleAddToCart() {
+    const productAlreadyOnCart = cartItems.find(
+      (item) => item.id === product.id
+    );
+    if (productAlreadyOnCart) {
+      const productToUpdateQuantity = { ...productAlreadyOnCart };
+      const currentQuantity = productToUpdateQuantity.quantity || 1;
+      setCartItems([
+        ...cartItems.filter((item) => item.id !== productToUpdateQuantity.id),
+        { ...productToUpdateQuantity, quantity: currentQuantity + 1 },
+      ]);
+    } else {
+      const productToAddToCart = { ...product, quantity: 1 };
+      setCartItems([...cartItems, productToAddToCart]);
+    }
+  }
+
   return (
     <ProductCard>
       <ProductInfo>
@@ -78,7 +98,9 @@ const Product = ({ product }) => {
         <p className="product-description">{product.description}</p>
         <div className="product-price">
           <p>{product.price}</p>
-          <AddToCartButton>Adicionar ao carrinho</AddToCartButton>
+          <AddToCartButton onClick={() => handleAddToCart()}>
+            Adicionar ao carrinho
+          </AddToCartButton>
         </div>
       </ProductInfo>
 
