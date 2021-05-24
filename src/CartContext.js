@@ -8,7 +8,7 @@ export const CartContextProvider = (props) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [products, setProducts] = useState(null);
   const [productsToDisplay, setProductsToDisplay] = useState(null);
-  const [cartItems, setCartItems] = useState(null);
+  const [cartItems, setCartItems] = useState([]);
 
   async function getCategories() {
     setIsPending(true);
