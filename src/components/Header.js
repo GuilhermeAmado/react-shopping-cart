@@ -4,8 +4,14 @@ import { FiArrowLeft } from 'react-icons/fi';
 import ShoppingCartIcon from './ShoppingCartIcon';
 
 const StyledHeader = styled.header`
+  margin-bottom: 40px;
   background-color: #f7f7f7;
   box-shadow: var(--primary-shadow);
+  position: sticky;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 
   svg:hover {
     color: var(--accent-color);
