@@ -24,6 +24,10 @@ const ItemsCounter = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .item-count {
+    font-size: 0.8rem;
+  }
 `;
 
 const ShoppingCartIcon = () => {
@@ -44,7 +48,7 @@ const ShoppingCartIcon = () => {
     <CartIconContainer>
       <FiShoppingCart size="2rem" className="back-icon" />
       <ItemsCounter className="counter">
-        <strong>{itemCount}</strong>
+        <strong className="item-count">{itemCount}</strong>
       </ItemsCounter>
     </CartIconContainer>
   );
