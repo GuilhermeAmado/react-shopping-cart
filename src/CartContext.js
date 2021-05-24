@@ -11,26 +11,40 @@ export const CartContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(null);
 
   async function getCategories() {
-    const response = await fetch('categories.json', {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-    });
-    const data = await response.json();
-    setCategories(data);
+    setIsPending(true);
+    try {
+      const response = await fetch('categories.json', {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+      });
+      const data = await response.json();
+      setCategories(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsPending(false);
+    }
   }
 
   async function getProducts() {
-    const response = await fetch('products.json', {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-    });
-    const data = await response.json();
-    setProducts(data);
-    setProductsToDisplay(data);
+    setIsPending(true);
+    try {
+      const response = await fetch('products.json', {
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+      });
+      const data = await response.json();
+      setProducts(data);
+      setProductsToDisplay(data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsPending(false);
+    }
   }
 
   useEffect(() => {
@@ -41,6 +55,8 @@ export const CartContextProvider = (props) => {
   return (
     <CartContext.Provider
       value={{
+        isPending,
+        setIsPending,
         categories,
         setCategories,
         selectedCategory,
