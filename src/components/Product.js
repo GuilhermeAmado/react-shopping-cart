@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import styled from 'styled-components';
 import { CartContext } from '../CartContext';
 
@@ -74,7 +75,7 @@ const AddToCartButton = styled.button`
 const Product = ({ product }) => {
   const { cartItems, setCartItems } = useContext(CartContext);
 
-  function handleAddToCart() {
+  function handleAddToCart(product) {
     const productAlreadyOnCart = cartItems.find(
       (item) => item.id === product.id
     );
@@ -89,6 +90,9 @@ const Product = ({ product }) => {
       const productToAddToCart = { ...product, quantity: 1 };
       setCartItems([...cartItems, productToAddToCart]);
     }
+    toast.success(`${product.name} adicionado ao carrinho!`, {
+      duration: 1000,
+    });
   }
 
   return (
@@ -98,7 +102,7 @@ const Product = ({ product }) => {
         <p className="product-description">{product.description}</p>
         <div className="product-price">
           <p>{product.price}</p>
-          <AddToCartButton onClick={() => handleAddToCart()}>
+          <AddToCartButton onClick={() => handleAddToCart(product)}>
             Adicionar ao carrinho
           </AddToCartButton>
         </div>
