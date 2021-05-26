@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import styled from 'styled-components';
 import { CartContext } from '../CartContext';
+import formatCurrency from '../utils/formatCurrency';
 
 const ProductCard = styled.li`
   width: 100%;
@@ -101,7 +102,7 @@ const Product = ({ product }) => {
         <h4 className="product-name">{product.name}</h4>
         <p className="product-description">{product.description}</p>
         <div className="product-price">
-          <p>{product.price}</p>
+          <p>{formatCurrency(product.price)}</p>
           <AddToCartButton onClick={() => handleAddToCart(product)}>
             Adicionar ao carrinho
           </AddToCartButton>
