@@ -23,11 +23,17 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-family: 'Montserrat', sans-serif;
+    overflow-y: scroll;
   }
 
   body {
       box-sizing: border-box;
       color: var(--text-dark);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none
   }
 `;
 

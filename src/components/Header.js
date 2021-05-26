@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FiArrowLeft } from 'react-icons/fi';
 import ShoppingCartIcon from './ShoppingCartIcon';
+import { Link, useLocation } from 'react-router-dom';
 
 const StyledHeader = styled.header`
   margin-bottom: 40px;
@@ -13,7 +14,12 @@ const StyledHeader = styled.header`
   left: 0;
   z-index: 1;
 
-  svg:hover {
+  nav {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  a:hover {
     color: var(--accent-color);
   }
 
@@ -28,18 +34,27 @@ const StyledHeader = styled.header`
 `;
 
 const Header = () => {
+  const location = useLocation();
   return (
     <StyledHeader>
       <nav>
         <ul>
           <li>
-            <FiArrowLeft size="2rem" />
+            {location.pathname !== '/' && (
+              <Link to="/">
+                <FiArrowLeft size="2rem" />
+              </Link>
+            )}
           </li>
           <li>
-            <h1>React Cart</h1>
+            <Link to="/">
+              <h1>React Cart</h1>
+            </Link>
           </li>
           <li>
-            <ShoppingCartIcon />
+            <Link to="/checkout">
+              <ShoppingCartIcon />
+            </Link>
           </li>
         </ul>
       </nav>
