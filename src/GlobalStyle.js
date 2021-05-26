@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
     --accent-color75: hsla(334, 75%, 34%, 0.75);
     --primary-shadow: inset 0 -1px 0 #dcdcdc;
     --primary-border: 1px solid hsl(0, 0%, 80%);
+    --warning-color50: hsla(43, 100%, 61%, 0.5);
   }
 
   *,
@@ -34,6 +35,11 @@ const GlobalStyle = createGlobalStyle`
   a {
     color: inherit;
     text-decoration: none
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
   }
 `;
 
