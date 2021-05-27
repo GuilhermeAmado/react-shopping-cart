@@ -5,6 +5,7 @@ import { CartContext } from '../CartContext';
 
 const CartIconContainer = styled.div`
   position: relative;
+  margin-right: 10px;
 
   .counter {
     position: absolute;

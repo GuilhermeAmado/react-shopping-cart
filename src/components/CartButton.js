@@ -7,6 +7,7 @@ const CartButton = (props) => {
 
 const StyledButton = styled.button`
   width: fit-content;
+  min-height: 30px;
   padding: 0.5em 1em;
   background-color: var(--accent-color);
   color: var(--text-light);

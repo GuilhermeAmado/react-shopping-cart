@@ -85,6 +85,7 @@ const Background = styled.div`
   width: 100%;
   height: 100%;
   background-color: hsla(0, 0%, 0%, 0.8);
+  z-index: 2;
 
   display: flex;
   align-items: center;

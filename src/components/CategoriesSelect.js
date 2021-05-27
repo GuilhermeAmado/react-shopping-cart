@@ -4,8 +4,9 @@ import Select from 'react-select';
 import { CartContext } from '../CartContext';
 
 const SelectContainer = styled.div`
-  max-width: 600px;
+  max-width: 620px;
   margin: 3rem auto;
+  padding: 0 10px;
 `;
 
 const CategoriesSelect = () => {

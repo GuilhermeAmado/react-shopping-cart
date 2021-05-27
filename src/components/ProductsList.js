@@ -4,7 +4,8 @@ import styled from 'styled-components';
 const ListContainer = styled.ul`
   list-style: none;
   margin: 3rem auto;
-  max-width: 600px;
+  padding: 0 10px;
+  max-width: 620px;
 
   display: flex;
   flex-direction: column;
