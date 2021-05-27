@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import styled from 'styled-components';
 import { CartContext } from '../CartContext';
 import formatCurrency from '../utils/formatCurrency';
+import CartButton from './CartButton';
 
 const ProductCard = styled.li`
   width: 100%;
@@ -56,23 +57,6 @@ const ProductImage = styled.div`
   }
 `;
 
-const AddToCartButton = styled.button`
-  width: fit-content;
-  padding: 0.5em 1em;
-  background-color: var(--accent-color);
-  color: var(--text-light);
-  font-family: inherit;
-  font-weight: 700;
-  border: none;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-
-  :hover {
-    background-color: var(--accent-color75);
-  }
-`;
-
 const Product = ({ product }) => {
   const { cartItems, setCartItems } = useContext(CartContext);
 
@@ -103,9 +87,9 @@ const Product = ({ product }) => {
         <p className="product-description">{product.description}</p>
         <div className="product-price">
           <p>{formatCurrency(product.price)}</p>
-          <AddToCartButton onClick={() => handleAddToCart(product)}>
+          <CartButton onClick={() => handleAddToCart(product)}>
             Adicionar ao carrinho
-          </AddToCartButton>
+          </CartButton>
         </div>
       </ProductInfo>
 
