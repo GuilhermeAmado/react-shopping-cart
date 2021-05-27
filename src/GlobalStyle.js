@@ -38,7 +38,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .container {
-    max-width: 600px;
+    max-width: 620px;
+    padding: 0 10px;
     margin: 0 auto;
   }
 `;

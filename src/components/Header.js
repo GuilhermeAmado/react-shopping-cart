@@ -46,7 +46,7 @@ const StyledHeader = styled.header`
   }
 
   nav {
-    max-width: 600px;
+    max-width: 620px;
     margin: 0 auto;
   }
 
@@ -56,7 +56,7 @@ const StyledHeader = styled.header`
 
   ul {
     list-style: none;
-    padding: 1rem 0;
+    padding: 1rem 0.75rem;
 
     display: flex;
     justify-content: space-between;

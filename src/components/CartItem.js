@@ -6,7 +6,6 @@ import { useHistory } from 'react-router-dom';
 import formatCurrency from '../utils/formatCurrency';
 
 const CartItem = ({ item: currentItem }) => {
-  console.log('currentItem: ', currentItem);
   const { cartItems, setCartItems } = useContext(CartContext);
   const [productTotalPrice, setProductTotalPrice] = useState(0);
 
@@ -107,8 +106,10 @@ const ItemQuantityUpdater = styled.div`
   }
 
   span {
+    min-width: 28px;
+    text-align: center;
     font-weight: 700;
-    margin: 0 0.75rem;
+    margin: 0 0.5rem;
   }
 `;
 
