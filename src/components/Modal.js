@@ -8,6 +8,8 @@ import CartButton from './CartButton';
 const Modal = () => {
   const { showModal, setShowModal } = useContext(CartContext);
 
+  const modalRef = useRef();
+
   const animation = useSpring({
     config: {
       duration: 250,
@@ -16,15 +18,36 @@ const Modal = () => {
     transform: showModal ? `translateY(0%)` : `translateY(-100%)`,
   });
 
-  if (!showModal) return null;
-
   function handleCloseModal() {
     setShowModal(false);
   }
 
+  function closeModalByOutsideClick(e) {
+    if (modalRef.current === e.target) {
+      setShowModal(false);
+    }
+  }
+
+  const closeModalByPressingEsc = useCallback(
+    (e) => {
+      if (e.key === 'Escape' && showModal === true) {
+        setShowModal(false);
+      }
+    },
+    [setShowModal, showModal]
+  );
+
+  useEffect(() => {
+    document.addEventListener('keydown', closeModalByPressingEsc);
+    return () =>
+      document.removeEventListener('keydown', closeModalByPressingEsc);
+  }, [closeModalByPressingEsc]);
+
+  if (!showModal) return null;
+
   return (
     <>
-      <Background>
+      <Background ref={modalRef} onClick={closeModalByOutsideClick}>
         <animated.div style={animation}>
           <ModalWrapper>
             <ModalContent>
