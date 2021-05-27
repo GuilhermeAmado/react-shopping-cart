@@ -13,8 +13,8 @@ function App() {
     <CartContextProvider>
       <GlobalStyle />
       <Toaster position="top-right" />
-      <Modal />
       <BrowserRouter>
+        <Modal />
         <Header />
         <Switch>
           <Route exact path="/" component={ProductsPage} />

@@ -8,8 +8,12 @@ import EmptyCartWarning from '../components/EmptyCartWarning';
 import formatCurrency from '../utils/formatCurrency';
 
 const CartPage = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, setShowModal } = useContext(CartContext);
   const [totalPurchasePrice, setTotalPurchasePrice] = useState(0);
+
+  function handleCheckout() {
+    setShowModal(true);
+  }
 
   useEffect(() => {
     if (cartItems.length > 0) {
@@ -38,7 +42,7 @@ const CartPage = () => {
               </strong>
             </PurchaseTotalContainer>
             <CheckoutButtonContainer>
-              <CartButton>Finalizar compra</CartButton>
+              <CartButton onClick={handleCheckout}>Finalizar compra</CartButton>
             </CheckoutButtonContainer>
           </>
         )}

@@ -4,9 +4,13 @@ import { useSpring, animated } from 'react-spring';
 import { CartContext } from '../CartContext';
 import { FiX, FiCheckCircle } from 'react-icons/fi';
 import CartButton from './CartButton';
+import { useHistory } from 'react-router-dom';
 
 const Modal = () => {
-  const { showModal, setShowModal } = useContext(CartContext);
+  const history = useHistory();
+  console.log(history);
+
+  const { showModal, setShowModal, setCartItems } = useContext(CartContext);
 
   const modalRef = useRef();
 
@@ -18,23 +22,28 @@ const Modal = () => {
     transform: showModal ? `translateY(0%)` : `translateY(-100%)`,
   });
 
-  function handleCloseModal() {
-    setShowModal(false);
-  }
+  const handleCloseModal = useCallback(
+    function handleCloseModal() {
+      setCartItems([]);
+      history.push('/');
+      setShowModal(false);
+    },
+    [history, setCartItems, setShowModal]
+  );
 
   function closeModalByOutsideClick(e) {
     if (modalRef.current === e.target) {
-      setShowModal(false);
+      handleCloseModal();
     }
   }
 
   const closeModalByPressingEsc = useCallback(
     (e) => {
       if (e.key === 'Escape' && showModal === true) {
-        setShowModal(false);
+        handleCloseModal();
       }
     },
-    [setShowModal, showModal]
+    [handleCloseModal, showModal]
   );
 
   useEffect(() => {

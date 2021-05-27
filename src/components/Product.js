@@ -58,10 +58,9 @@ const ProductImage = styled.div`
 `;
 
 const Product = ({ product }) => {
-  const { cartItems, setCartItems, setShowModal } = useContext(CartContext);
+  const { cartItems, setCartItems } = useContext(CartContext);
 
   function handleAddToCart(product) {
-    setShowModal((showModal) => !showModal);
     const productAlreadyOnCart = cartItems.find(
       (item) => item.id === product.id
     );
