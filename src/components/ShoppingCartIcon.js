@@ -26,7 +26,7 @@ const ItemsCounter = styled.div`
   align-items: center;
 
   .item-count {
-    font-size: 0.8rem;
+    font-size: ${(props) => (props.itemCount < 99 ? '0.8rem' : '0.6rem')};
   }
 `;
 
@@ -45,7 +45,7 @@ const ShoppingCartIcon = () => {
   return (
     <CartIconContainer>
       <FiShoppingCart size="2rem" className="back-icon" />
-      <ItemsCounter className="counter">
+      <ItemsCounter className="counter" itemCount={itemCount}>
         <strong className="item-count">{itemCount}</strong>
       </ItemsCounter>
     </CartIconContainer>
