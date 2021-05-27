@@ -1,11 +1,20 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
+import { useSpring, animated } from 'react-spring';
 import { CartContext } from '../CartContext';
 import { FiX, FiCheckCircle } from 'react-icons/fi';
 import CartButton from './CartButton';
 
 const Modal = () => {
   const { showModal, setShowModal } = useContext(CartContext);
+
+  const animation = useSpring({
+    config: {
+      duration: 250,
+    },
+    opacity: showModal ? 1 : 0,
+    transform: showModal ? `translateY(0%)` : `translateY(-100%)`,
+  });
 
   if (!showModal) return null;
 
@@ -16,17 +25,19 @@ const Modal = () => {
   return (
     <>
       <Background>
-        <ModalWrapper>
-          <ModalContent>
-            <CloseModalButton
-              aria-label="fechar pop-up"
-              onClick={() => handleCloseModal()}
-            />
-            <SuccessIcon size="3rem" />
-            <h2>Pedido realizado com sucesso!</h2>
-            <CartButton onClick={() => handleCloseModal()}>Fechar</CartButton>
-          </ModalContent>
-        </ModalWrapper>
+        <animated.div style={animation}>
+          <ModalWrapper>
+            <ModalContent>
+              <CloseModalButton
+                aria-label="fechar pop-up"
+                onClick={() => handleCloseModal()}
+              />
+              <SuccessIcon size="3rem" />
+              <h2>Pedido realizado com sucesso!</h2>
+              <CartButton onClick={() => handleCloseModal()}>Fechar</CartButton>
+            </ModalContent>
+          </ModalWrapper>
+        </animated.div>
       </Background>
     </>
   );
