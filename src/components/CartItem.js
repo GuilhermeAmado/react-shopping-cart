@@ -1,11 +1,14 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { FiMinusCircle, FiPlusCircle } from 'react-icons/fi';
 import { CartContext } from '../CartContext';
 import { useHistory } from 'react-router-dom';
+import formatCurrency from '../utils/formatCurrency';
 
 const CartItem = ({ item: currentItem }) => {
+  console.log('currentItem: ', currentItem);
   const { cartItems, setCartItems } = useContext(CartContext);
+  const [productTotalPrice, setProductTotalPrice] = useState(0);
 
   const history = useHistory();
 
@@ -37,6 +40,10 @@ const CartItem = ({ item: currentItem }) => {
   }
 
   useEffect(() => {
+    setProductTotalPrice(currentItem.price * currentItem.quantity);
+  }, [currentItem]);
+
+  useEffect(() => {
     if (currentItem.quantity === 0) {
       setCartItems((cartItems) =>
         cartItems.filter(({ id }) => id !== currentItem.id)
@@ -50,18 +57,24 @@ const CartItem = ({ item: currentItem }) => {
 
   return (
     <CartItemCard>
-      <ItemQuantityUpdater>
-        <FiMinusCircle
-          size="1.5em"
-          onClick={() => handleItemCartCountUpdate('remove')}
-        />
-        <span>{currentItem.quantity}</span>
-        <FiPlusCircle
-          size="1.5em"
-          onClick={() => handleItemCartCountUpdate('add')}
-        />
-      </ItemQuantityUpdater>
-      {currentItem.name}
+      <ProductQuantityAndNameContainer>
+        <ItemQuantityUpdater>
+          <FiMinusCircle
+            size="1.5em"
+            onClick={() => handleItemCartCountUpdate('remove')}
+          />
+          <span>{currentItem.quantity}</span>
+          <FiPlusCircle
+            size="1.5em"
+            onClick={() => handleItemCartCountUpdate('add')}
+          />
+        </ItemQuantityUpdater>
+        {currentItem.name}
+      </ProductQuantityAndNameContainer>
+
+      <PriceContainer>
+        <strong>{formatCurrency(productTotalPrice)}</strong>
+      </PriceContainer>
     </CartItemCard>
   );
 };
@@ -74,6 +87,7 @@ const CartItemCard = styled.li`
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `;
 
 const ItemQuantityUpdater = styled.div`
@@ -96,6 +110,16 @@ const ItemQuantityUpdater = styled.div`
     font-weight: 700;
     margin: 0 0.75rem;
   }
+`;
+
+const ProductQuantityAndNameContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const PriceContainer = styled.div`
+  text-align: right;
+  min-width: 100px;
 `;
 
 export default CartItem;
