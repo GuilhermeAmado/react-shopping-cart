@@ -1,4 +1,11 @@
-import React, { useContext, useRef, useEffect, useCallback } from 'react';
+import React, {
+  useContext,
+  useRef,
+  useEffect,
+  useCallback,
+  create,
+} from 'react';
+import ReactDom from 'react-dom';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { CartContext } from '../CartContext';
@@ -54,7 +61,7 @@ const Modal = () => {
 
   if (!showModal) return null;
 
-  return (
+  return ReactDom.createPortal(
     <>
       <Background ref={modalRef} onClick={closeModalByOutsideClick}>
         <animated.div style={animation}>
@@ -71,12 +78,17 @@ const Modal = () => {
           </ModalWrapper>
         </animated.div>
       </Background>
-    </>
+    </>,
+    document.getElementById('modal-portal')
   );
 };
 
 const Background = styled.div`
   position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   background-color: hsla(0, 0%, 0%, 0.8);
@@ -88,8 +100,10 @@ const Background = styled.div`
 
 const ModalWrapper = styled.div`
   position: relative;
-  width: 600px;
-  height: 250px;
+  margin: 15px;
+  padding: 3rem;
+  max-width: 600px;
+  min-height: 250px;
   box-shadow: 0 5px 16px hsla(0, 0%, 0%, 0.2);
   background-color: #fff;
   color: var(--text-dark);
@@ -111,6 +125,7 @@ const ModalContent = styled.div`
   color: var(--text-dark);
   h2 {
     margin: 15px 0 30px 0;
+    text-align: center;
   }
 
   p {
