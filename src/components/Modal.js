@@ -1,10 +1,4 @@
-import React, {
-  useContext,
-  useRef,
-  useEffect,
-  useCallback,
-  create,
-} from 'react';
+import React, { useContext, useRef, useEffect, useCallback } from 'react';
 import ReactDom from 'react-dom';
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
@@ -15,7 +9,6 @@ import { useHistory } from 'react-router-dom';
 
 const Modal = () => {
   const history = useHistory();
-  console.log(history);
 
   const { showModal, setShowModal, setCartItems } = useContext(CartContext);
 
