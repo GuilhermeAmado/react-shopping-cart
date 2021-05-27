@@ -6,12 +6,14 @@ import CartPage from './pages/CartPage';
 import { CartContextProvider } from './CartContext';
 import { Toaster } from 'react-hot-toast';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Modal from './components/Modal';
 
 function App() {
   return (
     <CartContextProvider>
       <GlobalStyle />
       <Toaster position="top-right" />
+      <Modal />
       <BrowserRouter>
         <Header />
         <Switch>

@@ -10,6 +10,7 @@ export const CartContextProvider = (props) => {
   const [products, setProducts] = useState(null);
   const [productsToDisplay, setProductsToDisplay] = useState(null);
   const [cartItems, setCartItems] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   async function getCategories() {
     setIsPending(true);
@@ -68,6 +69,8 @@ export const CartContextProvider = (props) => {
         setProductsToDisplay,
         cartItems,
         setCartItems,
+        showModal,
+        setShowModal,
       }}
     >
       {props.children}
