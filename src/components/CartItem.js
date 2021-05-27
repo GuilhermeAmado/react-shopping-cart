@@ -2,9 +2,12 @@ import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { FiMinusCircle, FiPlusCircle } from 'react-icons/fi';
 import { CartContext } from '../CartContext';
+import { useHistory } from 'react-router-dom';
 
 const CartItem = ({ item: currentItem }) => {
   const { cartItems, setCartItems } = useContext(CartContext);
+
+  const history = useHistory();
 
   function handleItemCartCountUpdate(mode) {
     let plusOrMinusOne;
@@ -26,6 +29,11 @@ const CartItem = ({ item: currentItem }) => {
       }
     });
     setCartItems(updatedCartItems);
+
+    if (updatedCartItems.length === 1 && updatedCartItems[0].quantity === 0) {
+      setCartItems([]);
+      history.push('/');
+    }
   }
 
   useEffect(() => {

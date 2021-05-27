@@ -35,13 +35,11 @@ const ShoppingCartIcon = () => {
   const [itemCount, setItemCount] = useState(0);
 
   useEffect(() => {
-    if (cartItems.length > 0) {
-      const numberOfItems = cartItems.reduce((accumulator, item) => {
-        return accumulator + item.quantity;
-      }, 0);
+    const numberOfItems = cartItems.reduce((accumulator, item) => {
+      return accumulator + item.quantity;
+    }, 0);
 
-      setItemCount(numberOfItems);
-    }
+    setItemCount(numberOfItems);
   }, [cartItems]);
 
   return (

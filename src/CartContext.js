@@ -1,4 +1,5 @@
 import React, { useState, createContext, useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 export const CartContext = createContext();
 
@@ -22,7 +23,7 @@ export const CartContextProvider = (props) => {
       const data = await response.json();
       setCategories(data);
     } catch (error) {
-      console.log(error);
+      toast.error('Oops! Ocorreu um erro. Tente novamente mais tarde.');
     } finally {
       setIsPending(false);
     }
@@ -41,7 +42,7 @@ export const CartContextProvider = (props) => {
       setProducts(data);
       setProductsToDisplay(data);
     } catch (error) {
-      console.log(error);
+      toast.error('Oops! Ocorreu um erro. Tente novamente mais tarde.');
     } finally {
       setIsPending(false);
     }
