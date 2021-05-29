@@ -6,6 +6,7 @@ const CartItemsListContainer = styled.ul`
   flex-direction: column;
   gap: 15px;
   list-style: none;
+  margin-bottom: 60px;
 `;
 
 const CartItemsList = (props) => {
