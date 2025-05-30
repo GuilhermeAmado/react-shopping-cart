@@ -59,11 +59,13 @@ const CartItem = ({ item: currentItem }) => {
       <ProductQuantityAndNameContainer>
         <ItemQuantityUpdater>
           <FiMinusCircle
+            aria-label="remove one item"
             size="1.5em"
             onClick={() => handleItemCartCountUpdate('remove')}
           />
           <span>{currentItem.quantity}</span>
           <FiPlusCircle
+            aria-label="add one item"
             size="1.5em"
             onClick={() => handleItemCartCountUpdate('add')}
           />
